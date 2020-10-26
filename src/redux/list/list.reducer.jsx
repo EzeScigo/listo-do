@@ -1,5 +1,5 @@
 import ListActionTypes from './list.type';
-import { addTaskToList, removeTaskFromList } from './list.utils';
+import { addTaskToList, removeTaskFromList, updateExistingTask } from './list.utils';
 
 const INITIAL_STATE = {
   tasks: [],
@@ -21,7 +21,12 @@ const ListReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         tasks: removeTaskFromList(state.tasks, action.payload)
-      }
+      };
+    case ListActionTypes.UPDATE_TASK:
+      return {
+        ...state,
+        tasks: updateExistingTask(state.tasks, action.payload)
+      };
     default:
       return state;
   }

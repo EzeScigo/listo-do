@@ -15,3 +15,8 @@ export const removeTaskFromList = task => ({
   type: ListActionTypes.REMOVE_TASK,
   payload: task
 });
+
+export const updateTask = task => ({
+  type: ListActionTypes.UPDATE_TASK,
+  payload: task
+});
