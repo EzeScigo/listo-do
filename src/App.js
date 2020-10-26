@@ -1,4 +1,5 @@
 import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from './components/header/header.component.jsx';
 import HomePage from './pages/homepage/homepage.component';
@@ -9,7 +10,9 @@ const App = () => {
   return (
     <div>
       <Header />
-      <HomePage />
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+      </Switch>
     </div>
   );
 };

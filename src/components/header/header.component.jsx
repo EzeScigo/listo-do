@@ -4,7 +4,9 @@ import { HeaderContainer } from './header.styles';
 
 const Header = () => {
   return (
-    <HeaderContainer />
+    <HeaderContainer>
+      <h1>Todo-LIST</h1>
+    </HeaderContainer>
   )
 };
 

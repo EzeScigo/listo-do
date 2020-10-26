@@ -1,6 +1,19 @@
 .home {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
-  padding: 20px 80px;
+  padding: 20px 40px;
+
+  form {
+    margin: 10px;
+    width: 35vh;
+    position: right;
+
+    .buttons {
+      display: flex;
+      }
+  }
+
+
 }
+

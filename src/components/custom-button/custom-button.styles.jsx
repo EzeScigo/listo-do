@@ -1,57 +1,50 @@
 import styled, { css } from 'styled-components';
 
 const ButtonStyles = css`
-  justify-content: center;
-
-  &:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-  }
 `;
 
-const removeTaskStyles = css`
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-  width: 25px;
-  height: 25px;
-  align-self: flex-end;
-  padding: 0px 0px 0px 0px;
-
-  &:hover {
-    background-color: black;
-    color: white;
-    border: none;
-  }
+const SmallButton = css`
+  font-size: 11px;
 `;
 
 const getButtonStyles = props => {
-  if (props.removeTask) {
-    return removeTaskStyles;
-  } 
-  
   return ButtonStyles;
 };
 
+const getButtonSize = props => {
+  if (props.smallButton) {
+    return SmallButton;
+  }
+};
+
 export const CustomButtonContainer = styled.button`
-  width: auto;
-  height: 50px;
-  letter-spacing: 0.5px;
-  line-height: 50px;
+  margin: 10px;
+  padding: 10px;
+  min-width: 100px;
+  height: auto;
+  text-align: center;
   font-size: 13px;
   text-transform: uppercase;
   font-family: 'Piazzolla';
   font-weight: bolder;
   cursor: pointer;
-  display: flex;
-  background-color: black;
+  background-color: rgb(0, 111, 111);
   color: white;
   border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 10px 0px;
 
   &:hover {
     filter: brightness(85%);
-  }
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 15px 0px;
+  };
+
+  &:active {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px 0px;
+  };
 
   ${getButtonStyles};
+  ${getButtonSize};
 `;
+

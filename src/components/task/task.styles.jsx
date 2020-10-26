@@ -1,15 +1,20 @@
 import styled from 'styled-components';
 
 export const TaskRemover = styled.div`
-  width: 25px;
-  height: 25px;
+  width: auto;
+  height: 20px;
+  padding: 2px;
+  display: flex;
   align-self: flex-end;
+  justify-content: center;
   padding: 0px 0px 0px 0px;
   cursor: pointer;
+  transition: all 300ms;
   
   &:hover {
     transform: scale(1.1);
     font-weight: bold;
+    transition: all 300ms;
   }
 
   &:active {
@@ -18,24 +23,26 @@ export const TaskRemover = styled.div`
 `;
 
 export const TaskCardContainer = styled.div`
-  background: burlywood; 
-  width: 40vh;
-  min-width: 200px;
-  height: 170px;
+  background: rgb(201, 225, 127); 
+  max-width: 400px;
+  width: 300px;
+  height: auto;
+  word-break: break-word;
+  text-overflow: ellipsis;
   display: flex;
   padding: 5px 5px;
-  margin: 10px;
-  justify-content: stretch;
+  margin: 10px 0px;
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  box-shadow: 2px 2px 20px 10px rgba(255, 255, 255, 0.2);
-  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 1px 10px 0px;
+  transition: all 1s;
   
   h1 {
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 2em;
+    font-size: 1.5em;
+    justify-content: center;
   }
 
   p {
@@ -43,7 +50,14 @@ export const TaskCardContainer = styled.div`
     font-size: 1em;
   }
 
+  footer {
+    font-size: 0.7em;
+    align-self: flex-end;
+  }
+
   &:hover {
-    opacity: 0.9;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 5px 1px;
+    transform: scale(1.05);
+    transition: all 1s; 
     }
 `;

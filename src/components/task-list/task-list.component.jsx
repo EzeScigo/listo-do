@@ -12,14 +12,11 @@ const TaskList = ({ tasks }) => {
     <TaskContainer>
       {tasks.length ?
         (tasks.map(task => (
-          <TaskCard title={task.title} desc={task.desc} />
+          <TaskCard key={task.id} task={task} />
         ))) : (
-          <p>No hay tareas.</p>
+          <p>No tasks pending.</p>
         )
       }
-      <TaskCard title='Task 1' desc='sadjiasd saijdsa osakoidsa isadoisa oksad.' />
-      <TaskCard title='Task 2' desc='sadsa sads aasd sadsad' />
-      <TaskCard title='Task 3' desc='dsjfsad dsasa sa dsasa sada'/>
     </TaskContainer>
   )
 };
