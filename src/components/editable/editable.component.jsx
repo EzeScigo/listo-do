@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import { updateTask } from '../../redux/list/list.actions';
 
@@ -14,6 +14,12 @@ const Editable = ({ taskID, text, type, placeholder, childRef, updateTask, ...pr
     title: `${text}`,
   });
 
+  useEffect(() => {
+    if (isEditing === true) {
+      inputRef.current.focus();
+    }
+  }, [isEditing]);
+
   const handleChange = event => {
     const { value, name } = event.target;
     setNewTask({ ...newTask, [name]: value });
@@ -22,14 +28,19 @@ const Editable = ({ taskID, text, type, placeholder, childRef, updateTask, ...pr
   const handleOnBlur = () => {
     updateTask(newTask);
     setEditing(!isEditing);
-  }
+  };
+
+  const handleClick = () => {
+    setEditing(!isEditing);
+    
+  };
 
   return (
     <div>
       {
         isEditing ? (
           <div 
-            onBlur={() => handleOnBlur()}
+            onBlur={ () => handleOnBlur() }
             >
             <input
               name='title'
@@ -40,7 +51,7 @@ const Editable = ({ taskID, text, type, placeholder, childRef, updateTask, ...pr
             </input>
           </div>
         ) : (
-          <div onClick={() => setEditing(!isEditing)}>
+          <div onClick={ () => handleClick() }>
             <h1>{ newTask.title }</h1>
           </div>
         )
